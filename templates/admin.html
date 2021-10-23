@@ -1,0 +1,61 @@
+{% extends "base2.html" %}
+
+{% block title %} Admin {% endblock %}
+
+{% block content %}
+<div class="container py-3">
+    <h1> Painel Administrativo</h1>
+    <div>
+        <a href="/add" class="btn btn-warning">Criar nova página</a> 
+        <a href="/addprod" class="btn btn-warning">Adicionar Produto</a> 
+    </div>
+    <h2>Páginas</h2>
+    <table class="table text-center">
+        <thead>
+          <tr>
+            <th style="width: 25%;">Página</th>
+            <th style="width: 50%;">Conteúdo</th>
+            <th style="width: 225%;">Opções</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for x in conteudo %}
+          <tr>
+            <td scope="row" style="width: 25%;">{{x.pagina}}</td>
+            <td scope="row" style="width: 50%;">{{x.texto}}</td>
+            <td scope="row" style="width: 25%;">
+              <a href="/edit/{{x.id}}">  Editar </a> | 
+              <a href="/delete/{{x.id}}">  Excluir </a>
+            </td>
+           </tr>
+           {% endfor %}
+        </tbody>
+      </table>
+      <br>
+      <h2>Produtos</h2>
+      <table class="table text-center">
+        <thead>
+          <tr>
+            <th style="width: 25%;">Produto</th>
+            <th style="width: 40%;">Descrição</th>
+            <th style="width: 10%;">Valor</th>
+            <th style="width: 25%;">Opções</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for z in produto %}
+          <tr>
+            <td scope="row" style="width: 25%;">{{z.produto}}</td>
+            <td scope="row" style="width: 50%;">{{z.descricao}}</td>
+            <td scope="row" style="width: 50%;">{{z.valor}}</td>
+            <td scope="row" style="width: 25%;">
+              <a href="/editprod/{{z.id}}">  Editar </a> | 
+              <a href="/deleteprod/{{z.id}}">  Excluir </a>
+            </td>
+           </tr>
+           {% endfor %}
+        </tbody>
+      </table>
+</div>
+
+{% endblock %}

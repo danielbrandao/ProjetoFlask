@@ -1,0 +1,32 @@
+{% extends "base2.html" %}
+
+{% block title %} Admin {% endblock %}
+
+{% block content %}
+<div class="container py-3">
+    <h1> Edição de Página</h1>
+    <form action="/editprod/{{produto.id}}" method="post">
+        <div class="col-md-3">
+            <label> Nome do Produto</label>
+            <input type="text" name="produto" id="produto" value="{{ produto.produto}}"  class="form-control">
+        </div> 
+        <br>
+        <div>
+            <label>Valor do Produto</label>
+            <input type="text" name="valor" id="valor" value="{{ produto.valor}}" class="form-control">
+        </div>
+        <div class="col-md-9">
+            <label>Descrição do produto</label>
+            <textarea name="descricao" id="descricao" class="form-control">
+            {{produto.descricao}}
+            </textarea>
+        </div>
+        </div>
+        <br>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary mb-3">Cadastrar</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

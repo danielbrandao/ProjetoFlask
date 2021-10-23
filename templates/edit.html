@@ -1,0 +1,28 @@
+{% extends "base2.html" %}
+
+{% block title %} Admin {% endblock %}
+
+{% block content %}
+<div class="container py-3">
+    <h1> Edição de Página</h1>
+    <form action="/edit/{{conteudo.id}}" method="post">
+        <div class="col-md-3">
+            <label> Tìtulo da Página</label>
+            <input type="text" name="pagina" id="pagina" value="{{ conteudo.pagina}}" placeholder="nome" class="form-control">
+        </div>
+        <br>
+        <div class="col-md-9">
+            <label>Conteúdo</label>
+            <textarea name="texto" id="texto" class="form-control">
+            {{conteudo.texto}}
+            </textarea>
+        </div>
+        </div>
+        <br>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary mb-3">Cadastrar</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
